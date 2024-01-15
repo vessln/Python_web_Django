@@ -9,9 +9,9 @@
 <h1>{{ title }}</h1>
 
 {% if task_list_count == 0 %}
-    <h2>Congratulations, you have no tasks!</h2>
+    <h2>You have no tasks!</h2>
 {% elif task_list_count == 1 %}
-    <h2>You're almost done! You have only {{ task_list_count }} task.</h2>
+    <h2>You have only {{ task_list_count }} task.</h2>
 {% else %}
     <h2>You have {{ task_list_count }} tasks.</h2>
 {% endif %}
@@ -41,6 +41,8 @@
 <br>
 
 <h4>{{ done_tasks }} done tasks!</h4>
+
+<br>
 
 </body>
 </html>
