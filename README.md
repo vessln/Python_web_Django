@@ -1,0 +1,1 @@
+Simple Django Basics exercises
