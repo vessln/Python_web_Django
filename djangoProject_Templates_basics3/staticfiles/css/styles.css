@@ -1,0 +1,23 @@
+body {
+    padding: 2em 5em;
+    background: antiquewhite;
+}
+
+.one-digit {
+    color: greenyellow;
+    font-weight: 700;
+}
+
+.two-digits {
+    color: crimson;
+    font-weight: 700;
+}
+
+.three-digits {
+    color: dodgerblue;
+    font-weight: 700;
+}
+
+img {
+    height: 200px;
+}

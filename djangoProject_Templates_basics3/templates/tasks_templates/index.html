@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {# <link rel="stylesheet" href="/static/css/styles.css"> #}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {# <img src="/static/pics/sunset.jpg" alt="sunset"> #}
+    <img src="{% static 'pics/sunset.jpg' %}" alt="sunset">
+    <p>{% static 'pics/sunset.jpg' %}</p>
+
+    <header>
+        <h1> {{ 1title }} </h1>
+    </header>
+
+    <main>
+        <h3>Some info for: <b>{{ actor.first_name }} {{ actor.last_name }}</b></h3>
+        <p>He is {{ actor.age }} years old. He is born in {{ actor.country }}, {{ actor.born }}.</p>
+        <p>Data: {{ actor.items }}</p>
+
+        <h3>Some info for: <b>{{ actress_object.first_name }} {{ actress_object.last_name }}</b></h3>
+        <p>She is {{ actress_object.age }} years old. She is born in {{ actress_object.country }}, {{ actress_object.born }}.</p>
+
+        <h3>Test filters:</h3>
+        <p>
+            Cut: {{ actress_object.first_name|truncatechars:4 }} {{ actress_object.last_name|truncatechars:7 }};
+            Add: {{ actor.first_name|add:"mmy" }};
+            Default: {{ actress_object.country|default:"Unknown" }};
+            Lower: {{ actor.country|lower }};
+            First: {{ actress_object.first_name|first }}. {{ actress_object.last_name|first }}.;
+            Date: {{ today|date:"D d M Y" }};
+            Length: {{ char_list|length }};
+            Join: {{ char_list|join:"-" }};
+            FloatFormat: {{ actor.age|floatformat:3 }};
+        </p>
+
+        <h3>Test tags:</h3>
+
+        {# comment #}
+
+        {% if actor.age <= 30 %}
+            <p>Actor is young!</p>
+        {% elif 30 < actor.age and actor.age <= 55 %}
+            <p>Actor is middle-aged.</p>
+            {% else %}
+            <p>Actor is old :( </p>
+        {% endif %}
+
+        {% if char_list|length < 10 %}
+            <p>Chars: {{ char_list|join:"" }}</p>
+        {% endif %}
+
+        <h4>For:</h4>
+        <ul>
+            {% for num in numbers_list %}
+
+                {% if num < 10 %}
+                    <li class="one-digit">{{ num }}</li>
+                {% elif num >= 10 and num <= 99 %}
+                    <li class="two-digits">{{ num }}</li>
+                {% else %}
+                    <li class="three-digits">{{ num }}</li>
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+
+        <h4>For... Empty:</h4>
+        <ul>
+            {% for num in empty_list %}
+                <li>{{ num }}</li>
+            {% empty %}
+                <p>No numbers</p>
+            {% endfor %}
+        </ul>
+
+        <h4>Url tag:</h4>
+        <ul>
+            {% for option in navigation %}
+                <li><a href="{% url "menu" option=option %}?option={{ option }}">{{ option }}</a></li>
+            {% endfor %}
+        </ul>
+        <p>{{ params }}</p>
+
+        <h4>CSRF token:</h4>
+        <p>{% csrf_token %}</p>
+        {% comment %}
+        <input type="hidden" name="csrfmiddlewaretoken" value="V857eQnZYDiC...">
+        {% endcomment %}
+
+        <h4>Lorem:</h4>
+        {% lorem 2 %}
+
+
+    </main>
+
+</body>
+</html>
