@@ -1,0 +1,25 @@
+<h2>Model form:</h2>
+<form action="{% url 'index_model_form' %}" method="post">
+    {{ model_form.as_p }}
+    {% csrf_token %}
+
+    <button>SAVE</button>
+</form>
+
+
+<h3>All_clients:</h3>
+<ul>
+    {% for client in all_clients %}
+        {% if client.age >= 18 %}
+            <li>
+                {{ client.first_name }} is adult.
+                <a href="{% url "index_update_client" pk=client.pk %}">update info</a>
+            </li>
+        {% else %}
+            <li>
+                {{ client.first_name }} is child.
+                <a href="{% url "index_update_client" pk=client.pk %}">update info</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

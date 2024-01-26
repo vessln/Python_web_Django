@@ -1,0 +1,7 @@
+<h2>Updated client data:</h2>
+<form action="{% url 'index_update_client' pk=client.pk %}" method="post">
+    {{ upd_form }}
+    {% csrf_token %}
+
+    <button>UPDATE</button>
+</form>

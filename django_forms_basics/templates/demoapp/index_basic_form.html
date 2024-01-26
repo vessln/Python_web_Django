@@ -1,0 +1,7 @@
+<h2>Demo Normal Form:</h2>
+<form action="{% url 'index_basic_form' %}" method="post">
+    {{ demo_client_form.as_p }}
+    {% csrf_token %}
+
+    <button>SEND</button>
+</form>
