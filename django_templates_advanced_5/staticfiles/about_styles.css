@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    gap: 2em;
+}
+
+img {
+    width: 300px;
+}
+
+p {
+    font-size: 1.3em;
+    color: darkcyan;
+}

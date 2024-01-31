@@ -1,0 +1,20 @@
+{% load user_tag %}
+
+<header>
+    {% if title %}
+        <h1>{{ title }}</h1>
+    {% else %}
+        <h1>no title</h1>
+    {% endif %}
+
+    <hr>
+
+    {% show_auth_user %}
+
+{#    {% if request.user.is_authenticated %}#}
+{#        <h2>Welcome {{ user|capfirst }} to the cat's world!</h2>#}
+{#    {% else %}#}
+{#        <h2>Welcome to the cat's world!</h2>#}
+{#    {% endif %}#}
+
+</header>

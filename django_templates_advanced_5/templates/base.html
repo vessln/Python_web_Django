@@ -1,0 +1,29 @@
+{% load custom_tag %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App for cats {% block page_title %} - home{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'main_styles.css' %}">
+
+    {% block styles %} {% endblock %}
+
+</head>
+<body>
+    <p>{% current_time_now %}</p>
+
+    {% include "partials/header.html" with title="KittyBlog" %}
+
+    {% include "partials/navigation_bar.html" %}
+
+    {% block main_content %}
+    {% endblock %}
+
+    {% include "partials/footer.html" %}
+
+</body>
+</html>

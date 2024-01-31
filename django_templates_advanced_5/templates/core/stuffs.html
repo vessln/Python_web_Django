@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load custom_filter %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'stuffs_styles.css' %}">
+{% endblock %}
+
+{% block page_title %} - stuffs{% endblock %}
+
+
+    {% block main_content %}
+        <h2>Stuffs for our favorite animal - kitty</h2>
+
+        <h3>Food</h3>
+        <p>Like their big cat cousins, house cats are obligate carnivores, meaning they have to eat meat to stay healthy.</p>
+        <img width="300" src="{% static 'images/cats_food.png' %}" alt="">
+
+        <hr>
+
+        <h3>Toys</h3>
+        <p>Cats love to play! Furthermore, toys bring variety into your cat's life, keep them fit, and sharpen their senses.</p>
+        <img width="300" src="{% static 'images/toys.png' %}" alt="">
+
+        <h4>We have in stock:</h4>
+        {{ toys|pluralize_word }}
+
+    {% endblock %}

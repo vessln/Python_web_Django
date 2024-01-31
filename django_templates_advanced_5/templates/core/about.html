@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'about_styles.css' %}">
+{% endblock %}
+
+{% block page_title %} - about{% endblock %}
+
+{% block main_content %}
+    <h2>About cats</h2>
+    <div class="container">
+        <img src="{% static 'images/diffcat.png' %}" alt="">
+        <p>
+            Cats are lovely animals! Adult cats typically weigh 4–6 kg. Cats have excellent night vision and can see at only
+            one-sixth the light level required for human vision. The domestic cat's hearing is most acute in the range of
+            500 Hz to 32 kHz. Outdoor cats are active both day and night, although they tend to be slightly more active at
+            night. Cats use many vocalizations for communication: purring, hissing, trilling, grunting, and several
+            different forms of meowing.
+        </p>
+    </div>
+
+    <ul>
+        <li>COMMON NAME: Domestic Cat</li>
+        <li>SCIENTIFIC NAME: Felis catus</li>
+        <li>TYPE: Mammal</li>
+    </ul>
+{% endblock %}
+
