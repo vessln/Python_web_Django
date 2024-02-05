@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+
+<h1>Base Form:</h1>
+<form action="{% url 'base_form' %}" method="post">
+    {{ user_form.as_p }}
+    {% csrf_token %}
+    <button>Submit</button>
+
+</form>
+
+<h1>Form with readonly fields:</h1>
+<form>
+    {{ readonly_form.as_p }}
+</form>
+
+<h1>Crispy Form:</h1>
+{% crispy user_form %}
+
+
+<ul>
+    {% for profile in all_users %}
+    <li>
+    {% if profile.user_profile_image %}
+        {{ profile.first_name }}
+        <img src="{{ profile.user_profile_image.url }}" height="70" alt="">
+    {% else %}
+        {{ profile.first_name }}
+        <img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg" height="70" alt="">
+    {% endif %}
+    </li>
+    {% endfor %}
+</ul>
