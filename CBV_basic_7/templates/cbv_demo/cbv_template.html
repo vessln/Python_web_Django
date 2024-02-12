@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Template view works!</h1>
+    <h3>Static: {{ static_data }}</h3>
+    <h3>Dynamic (refresh): {{ dynamic_data|date:"h:i:s" }}</h3>
+
+</body>
+</html>
+
+
+<h1>All tasks:</h1>
+<ul>
+    {% for task in all_tasks %}
+        <li>{{ task.task_name }} - Description: {{ task.description }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,16 @@
+<form action="{% url 'create view' %}" method="post">
+    {{ form }}
+
+    <button>Create task</button>
+
+    {% csrf_token %}
+
+</form>
+
+<h1>All tasks:</h1>
+<ul>
+    {% for task in all_tasks %}
+        <li>{{ task.task_name }} - Description: {{ task.description }}</li>
+    {% endfor %}
+</ul>
+
