@@ -1,0 +1,9 @@
+<h1>Login:</h1>
+
+<form action="{% url 'login user' %}?next={{ next }}" method="post">
+
+    {{ form.as_p }}
+    <button>Login</button>
+    {% csrf_token %}
+
+</form>

@@ -1,0 +1,9 @@
+<h1>Welcome to home page {{ request.user }}!</h1>
+
+
+{% if user.is_authenticated %}
+    <button><a href="{% url 'logout user' %}">Logout</a></button>
+{% else %}
+    <button><a href="{% url 'login user' %}">Login</a></button>
+    <button><a href="{% url 'register user' %}">Register</a></button>
+{% endif %}
